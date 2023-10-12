@@ -1,12 +1,7 @@
-WITH temp_daily AS (
-    SELECT * 
-    FROM {{ref('staging_temp')}}
-),
-add_weekday AS (
-    SELECT *,
-        EXTRACT(DOW FROM date) AS weekday,
-        EXTRACT(DAY FROM date) AS day_num
-    FROM temp_daily
+with temp_daily as (
+    select *,
+        to_char(timestamp, 'Day') as weekday
+    from {{ref("staging_temp")}}
 )
-SELECT *
-FROM add_weekday;
+select * 
+from temp_daily

@@ -4,8 +4,8 @@ WITH temp_daily AS (
 ),
 add_weekday AS (
     SELECT *,
-        EXTRACT(DOW FROM date) AS weekday,
-        EXTRACT(DAY FROM date) AS day_num
+        EXTRACT(DOW FROM timestamp) AS weekday,
+        EXTRACT(DAY FROM timestamp) AS day_num
     FROM temp_daily
 )
 SELECT *

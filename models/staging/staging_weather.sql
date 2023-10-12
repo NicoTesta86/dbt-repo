@@ -1,8 +1,8 @@
 WITH temperature_daily AS (
-    SELECT ((data -> 'forecast' -> 'forecastday' -> 0 -> 'date')::VARCHAR)::date  AS date,
-        ((data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'maxtemp_c')::VARCHAR)::FLOAT AS maxtemp_c,
-        ((data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'mintemp_c')::VARCHAR)::FLOAT AS mintemp_c,
-        ((data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'avgtemp_c')::VARCHAR)::FLOAT AS avgtemp_c,
+    SELECT ((data -> 'forecast' -> 'date')::VARCHAR)::date  AS date,
+        ((data -> 'forecast' ->  'day' -> 'maxtemp_c')::VARCHAR)::FLOAT AS maxtemp_c,
+        ((data -> 'forecast' ->  'day' -> 'mintemp_c')::VARCHAR)::FLOAT AS mintemp_c,
+        ((data -> 'forecast' -> 'day' -> 'avgtemp_c')::VARCHAR)::FLOAT AS avgtemp_c,
         (data -> 'location' -> 'name')::VARCHAR  AS city,
         (data -> 'location' -> 'region')::VARCHAR  AS region,
         (data -> 'location' -> 'country')::VARCHAR  AS country,

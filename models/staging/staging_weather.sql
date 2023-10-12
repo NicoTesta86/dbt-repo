@@ -11,3 +11,5 @@ WITH temperature_daily AS (
     FROM {{source("staging", "raw_temp")}})
 SELECT * 
 FROM temperature_daily
+
+

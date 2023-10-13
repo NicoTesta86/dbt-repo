@@ -1,13 +1,12 @@
-WITH weekday_avg_temp AS (
+WITH total_avg AS (
     SELECT
-        city,
-        AVG('Berlin') AS avg_avgtemp_c
+        city, country, year, weekday,
+        AVG(avgtemp_c) AS avg_temp_weekday,
     FROM {{ref('prep_temp')}}
-    GROUP BY city
+    GROUP BY city, country, year, weekday
 )
-
 SELECT *
-FROM weekday_avg_temp;
+FROM total_avg
 
 
 

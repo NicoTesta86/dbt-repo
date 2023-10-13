@@ -1,4 +1,4 @@
-WITH avg_temp_per_country AS (
+WITH avg_avgtemp_c AS (
     SELECT
         (data -> 'location' -> 'country')::VARCHAR AS country,
         AVG(((data -> 'forecast' -> 'day' -> 'avgtemp_c')::VARCHAR)::FLOAT) AS avg_avgtemp_c
@@ -7,7 +7,7 @@ WITH avg_temp_per_country AS (
 )
 
 SELECT *
-FROM avg_temp_per_country;
+FROM avg_avgtemp_c;
 
 
 

@@ -8,3 +8,6 @@ WITH avg_temp_per_country AS (
 
 SELECT *
 FROM avg_temp_per_country;
+
+
+

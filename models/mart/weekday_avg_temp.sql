@@ -1,7 +1,7 @@
 with weekday_avg_temp as (
     select 
         city,
-        avg(temperature_daily) as avgtemp_c,
+        avg(avgtemp_c) as avgtemp_c,
     
     from {{ref('prep_temp')}}
     group by city

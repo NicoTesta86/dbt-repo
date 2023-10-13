@@ -5,7 +5,7 @@ WITH total_avg AS (
         MAX(maxtemp_c) AS max_temp_weekday,
         MIN(mintemp_c) AS min_temp_weekday
     FROM {{ref('prep_temp')}}
-    GROUP BY city, country, year, weekday
+    GROUP BY city, country, date, weekday
 )
 SELECT *
 FROM total_avg

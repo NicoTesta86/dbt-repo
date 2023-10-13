@@ -1,11 +1,14 @@
-with weekday_avg_temp as (
-    select 
+WITH weekday_avg_temp AS (
+    SELECT
         city,
-        avg(avgtemp_c) as avgtemp_c,
-    
-    from {{ref('prep_temp')}}
-    group by city
+        AVG(avgtemp_c) AS avg_avgtemp_c
+    FROM {{ref('prep_temp')}}
+    GROUP BY city
 )
 
-select *
-from weekday_avg_temp
+SELECT *
+FROM weekday_avg_temp;
+
+
+
+
